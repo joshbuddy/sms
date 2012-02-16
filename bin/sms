@@ -7,4 +7,9 @@ if ARGV[0].nil?
   exit 1
 end
 
-sms ARGV[0]
+message = ARGV.shift
+if ARGV.empty?
+  sms message
+else
+  sms message, ARGV
+end

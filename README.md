@@ -19,7 +19,7 @@ to your `Gemfile` or `gem install SMS`
     sms "Hello", ["4151231234", "4157657651"]
     sms ["Hello", "there"], 4151231234
 
-You must have three environment variables set, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN and TWILIO_FROM. To do so, add this to your .bash_profile (or some thing that sets up some env vars for you):
+You must have three environment variables set, `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN` and `TWILIO_FROM`. To do so, add this to your .bash_profile (or some thing that sets up some env vars for you):
 
     export TWILIO_RECIPIENTS=4151231234
     export TWILIO_FROM=4151231234
@@ -36,7 +36,12 @@ If you wish to programically setup those variables, do the following:
 
     sms "hi", "4151231234"
 
-As well, you can have default recipients, so you can leave off the number all the time
+As well, you can have default recipients (via the , so you can leave off the number all the time
 
     SMS.default_recipients = "4151231234"
     sms "hello there!"
+
+
+## Binary usage
+
+There is also an `sms` binary. Just call it with the message you wish to send! All arguments past the first one are treated like recipients.
