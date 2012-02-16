@@ -1,0 +1,10 @@
+require 'sms'
+
+if ARGV[0].nil?
+  warn "You must supply a message"
+  warn "Usage:"
+  warn "sms [message]"
+  exit 1
+end
+
+sms ARGV[0]
