@@ -45,7 +45,7 @@ class SMS
     recipients = Array(recipients)
     recipients.map! { |r| r.to_s }
     from = opts && opts[:from] || twilio_from
-    raise "You must set a twlio from number. Please put your from number" +
+    raise "You must set a twilio from number. Please put your from number" +
       " in the environment variable as TWILIO_FROM or set it with SMS.from=" unless from
     messages = Array(messages)
     messages.map! { |m| m.to_s }
@@ -61,9 +61,9 @@ class SMS
 
   private
     def setup!
-    !twilio_account_id.nil? or raise "You must set a twlio account id. Please put your account id" +
+    !twilio_account_id.nil? or raise "You must set a twilio account id. Please put your account id" +
       " in the environment variable as TWILIO_ACCOUNT_ID or set it with SMS.twilio_account_id="
-    !twilio_auth_token.nil? or raise "You must set a twlio auth token. Please put your auth token" +
+    !twilio_auth_token.nil? or raise "You must set a twilio auth token. Please put your auth token" +
       " in the environment variable as TWILIO_AUTH_TOKEN or set it with SMS.twilio_auth_token="
   end
 end
