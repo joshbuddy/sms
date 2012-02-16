@@ -11,14 +11,17 @@ class SMS
     end
   end
 
-  attr_writer :twilio_account_id, :twilio_auth_token
-  attr_accessor :default_recipients, :twilio_from
+  attr_writer :twilio_account_id, :twilio_auth_token, :default_recipients, :twilio_from
 
   def client
     @client ||= begin
       setup!
       Twilio::REST::Client.new(twilio_account_id, twilio_auth_token)
     end
+  end
+
+  def default_recipients
+    @twilio_from ||= ENV['TWILIO_RECIPIENTS']
   end
 
   def twilio_from
@@ -36,7 +39,9 @@ class SMS
   def message(messages, *more)
     opts = more.last.is_a?(Hash) ? more.pop : nil
     recipients = opts && (opts[:recipients] || opts[:recipient]) || more.first || default_recipients
-    recipients or raise "No recipients have been specified"
+    raise "You must set a recipient. Please put your recipient number" +
+      " in the environment variable as TWILIO_RECIPIENTS or set it with SMS.default_recipients= or " +
+      " as it as an option to your #message call." unless recipients
     recipients = Array(recipients)
     recipients.map! { |r| r.to_s }
     from = opts && opts[:from] || twilio_from
