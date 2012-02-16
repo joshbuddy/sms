@@ -45,3 +45,5 @@ As well, you can have default recipients (via the , so you can leave off the num
 ## Binary usage
 
 There is also an `sms` binary. Just call it with the message you wish to send! All arguments past the first one are treated like recipients.
+
+    #> sms "hello there" 4151231234
