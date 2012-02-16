@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = SMS::VERSION
   s.authors     = ["Josh Hull"]
   s.email       = ["joshbuddy@gmail.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "https://github.com/joshbuddy/sms"
+  s.summary     = %q{Add an sms method to Kernel, because sms is the new puts}
+  s.description = %q{Add an sms method to Kernel, because sms is the new puts.}
 
   s.rubyforge_project = "sms"
 
