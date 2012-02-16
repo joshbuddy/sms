@@ -21,7 +21,7 @@ class SMS
   end
 
   def default_recipients
-    @twilio_from ||= ENV['TWILIO_RECIPIENTS']
+    @default_recipients ||= ENV['TWILIO_RECIPIENTS']
   end
 
   def twilio_from
